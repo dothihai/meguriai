@@ -1,1 +1,53 @@
-<h1>this is our home page</h1>
+<div class="bg-dark"></div>
+
+<div class="home-information">
+	<h1 class="slogan">Any swipe can change your life</h1>
+	<%= link_to "#", class: "btn btn-social btn-lg btn-facebook" do %>
+		<i class="fab fa-facebook-square"></i> Sign in with Facebook
+	<% end %>
+	<br /><br />
+	<%= link_to "#", class: "btn btn-social btn-lg btn-twitter" do %>
+		<i class="fab fa-twitter-square"></i> Sign in with Twitter
+	<% end %>
+	<br /><br />
+	<%= link_to "#", class: "btn btn-social btn-lg btn-google" do %>
+		<i class="fab fa-google-plus-square"></i> Sign in with Google+
+	<% end %>
+	<br /><br />
+	<%= link_to new_user_session_path, class: "btn btn-social btn-lg btn-foursquare" do %>
+		<i class="fab fa-app-store-ios"></i> Sign in with Meguriai
+	<% end %>
+	<br /><br />
+</div>
+
+
+
+
+<script type="text/javascript">
+
+jQuery(function($) {
+
+	$.supersized({
+		slide_interval   :   4000,
+		transition       :   1,
+		transition_speed : 700,
+		slinde_links     : 'blank',
+
+		slides           : [
+
+			{image : '<%= image_url("bg1.jpg") %>'},
+			{image : '<%= image_url("bg2.jpg") %>'},
+			{image : '<%= image_url("bg3.jpg") %>'},
+			{image : '<%= image_url("bg4.jpg") %>'},
+			{image : '<%= image_url("bg5.jpg") %>'},
+			{image : '<%= image_url("bg6.jpg") %>'},
+			{image : '<%= image_url("bg7.jpg") %>'}
+
+		]
+
+	});
+
+
+});
+
+</script>
