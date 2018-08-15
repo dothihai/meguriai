@@ -1,1 +1,20 @@
 <h1>this is our home page</h1>
+<%= search_form_for @search, url: root_path do |f| %>
+  <%= f.label :email_cont %>
+  <%= f.search_field :email_cont %>
+
+  <%= f.submit "search" %>
+<% end %>
+
+<table border= "1px">
+    <tr>
+        <th>mail</th>
+        
+    </tr>
+    <% @user.each do |user| %>
+    <tr>
+        <td> <%= user.email %></td>
+        
+    </tr>
+    <% end %>
+</table>
