@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  resources :microposts
+  resources :image_comments
+  resources :images
   devise_for :users
   root 'static_pages#home'
 
