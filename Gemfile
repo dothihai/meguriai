@@ -1,8 +1,7 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5'
+gem 'rails', '5.0.7'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -45,3 +44,16 @@ group :development do
   gem 'spring'
 end
 
+gem 'jquery-rails'
+gem 'bootstrap-sass'
+gem "autoprefixer-rails"
+gem 'font-awesome-sass', '~> 5.2.0'
+gem 'omniauth-facebook'
+gem "paperclip"
+gem 'aws-sdk', '< 2.0'
+gem 'simple_form'
+gem "cancan"
+gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
+gem "figaro"
+gem 'utf8-cleaner'
+gem 'devise'

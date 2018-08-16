@@ -13,6 +13,20 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+<<<<<<< HEAD
 //= require_tree .
 //= require websocket_rails/main
 
+=======
+//= require bootstrap-sprockets
+//= require jquery.jTinder
+//= require jquery.easing.min
+//= require jasny-bootstrap
+//= require supersized.3.2.7
+//= require jquery.transform2d
+//= require tinysort
+//= require jquery.tinysort
+//= require sweetalert.min
+//= require data-confirm-modal
+//= require_tree .
+>>>>>>> e6cb2e9d15faf2778bc567a8521a8fa59a29c90f
