@@ -1,6 +1,17 @@
-<h1>Editing Image</h1>
+<div class="wrapper fadeInDown">
+  <div id="formContent" style="overflow-y: scroll; height:630px;">
+    <!-- Tabs Titles -->
+    <h2 class="active"> Edit Image </h2>
 
-<%= render 'form', image: @image %>
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
 
-<%= link_to 'Show', @image %> |
-<%= link_to 'Back', images_path %>
+    <!-- Edit Form -->
+    <%= render 'form', image: @image %>
+
+    <%= link_to 'Show', @image %> |
+    <%= link_to 'Back', images_path %>
+  </div>
+</div>
