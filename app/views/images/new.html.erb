@@ -1,0 +1,16 @@
+<div class="wrapper fadeInDown">
+  <div id="formContent" style="overflow-y: scroll; height:630px;">
+    <!-- Tabs Titles -->
+    <h2 class="active"> New Image </h2>
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
+    </div>
+
+    <!-- Login Form -->
+    <%= render 'form', image: @image %>
+
+    <%= link_to 'Back', images_path %>
+  </div>
+</div>

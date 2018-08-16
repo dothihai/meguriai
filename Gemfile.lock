@@ -62,6 +62,10 @@ GEM
     builder (3.2.3)
     byebug (10.0.2)
     cancan (1.6.10)
+    carrierwave (1.2.3)
+      activemodel (>= 4.0.0)
+      activesupport (>= 4.0.0)
+      mime-types (>= 1.16)
     climate_control (0.2.0)
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
@@ -240,6 +244,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   cancan
+  carrierwave
   coffee-rails (~> 4.1.0)
   data-confirm-modal!
   devise
