@@ -28,11 +28,11 @@
         </div>
 
         <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+            <div>認証中です: <%= resource.unconfirmed_email %></div>
         <% end %>
 
         <div class="field">
-          <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.label :password %> <i>(パスワードを変更したくない場合しばらく間を置いてください。)</i><br />
           <%= f.password_field :password, autocomplete: "off", class: "textIn" %>
           <% if @minimum_password_length %>
               <br />
@@ -46,19 +46,19 @@
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.label :current_password %> <i>(変更には現在のパスワード入力が必要です。)</i><br />
           <%= f.password_field :current_password, autocomplete: "off", class: "textIn" %>
         </div>
 
         <div class="actions">
-          <%= f.submit "Update" %>
+          <%= f.submit "変更" %>
         </div>
     <% end %>
 
-    <h3>Delete my account</h3>
+    <h3>アカウント削除</h3>
 
     <p>Unhappy?
-      <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, style:"background-color: #c14242;"%>
+      <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete, style:"background-color: #c14242;"%>
     </p>
 
     <%= link_to "Back", :back %>
