@@ -25,3 +25,15 @@
 
       </div>
     </div>
+    
+    
+
+<%= form_for(@image_like) do |f| %>
+<div class= "field">
+<%= f.label :like %><br>
+<%= f.hidden_field :image_id, :value => @image.id %>
+</div>
+<div class="actions">
+<%= f.submit %>
+</div>
+<% end %>
