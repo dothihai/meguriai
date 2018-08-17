@@ -1,18 +1,18 @@
 <div class="leading">
   <p class="leading-bigtext"><%= @images.first.user.name %></p>
-  <p class="leading-text">愛することによって失うものは何もない。しかし、愛することを怖がっていたら、何も得られない。<br>-　バーバラ・デ・アンジェリス　-</p>
+  <p class="leading-text">愛することによって失うものは何もない。しかし、愛することを怖がっていたら、何も得られない。</p>
 </div>
-<div style="overflow-y: scroll; height:400px;">
+<div style="overflow-y: scroll; height:500px;">
 
 <% @images.each do |image| %>
-      <div class="wrapper">
+      <div class="wrapper image-form">
         <div id="formContent">
           <!-- Tabs Titles -->
           <h2 class="active"> <%= image.created_at.to_date %> </h2>
 
           <!-- Icon -->
           <div class="fadeIn first">
-            <%= link_to (image_tag image.file, class:'center-block', style:'align-content: center;'), image_path(image) %>
+            <%= link_to (image_tag image.file, class:'center-block', style:'align-content: center; width: 600px;'), image_path(image) %>
           </div>
 
           <!-- Login Form -->
