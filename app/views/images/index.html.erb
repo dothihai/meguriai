@@ -27,9 +27,8 @@
           <div class="comment-like-form row center-block">
             <%= link_to '表示', image %>
             <%= link_to '編集', edit_image_path(image) %>
-            <%= link_to '削除', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= link_to '削除', image, method: :delete, data: { confirm: '本当に削除しますか？' } %>
           </div>
-
         </div>
       </div>
 <% end %>
