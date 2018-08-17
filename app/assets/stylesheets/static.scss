@@ -10,6 +10,7 @@
   column-gap:           0px;
 }
 
+
 #photos img {
   /* Just in case there are inline attributes */
   width: 100% !important;
@@ -43,4 +44,12 @@
     -webkit-column-count: 1;
     column-count:         1;
   }
+}
+
+.image-form {
+  width: 600px;
+}
+
+.image-form2 {
+  max-width: 700px !important;
 }
