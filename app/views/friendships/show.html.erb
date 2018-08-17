@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @friendship.user_id %>
+</p>
+
+<p>
+  <strong>Friend:</strong>
+  <%= @friendship.friend_id %>
+</p>
+
+<p>
+  <strong>T.string:</strong>
+  <%= @friendship.t.string %>
+</p>
+
+<p>
+  <strong>:</strong>
+  <%= @friendship. %>
+</p>
+
+<p>
+  <strong>Default:</strong>
+  <%= @friendship.default %>
+</p>
+
+<p>
+  <strong>Pending:</strong>
+  <%= @friendship.pending %>
+</p>
+
+<p>
+  <strong>T.datetime:</strong>
+  <%= @friendship.t.datetime %>
+</p>
+
+<p>
+  <strong>:</strong>
+  <%= @friendship. %>
+</p>
+
+<%= link_to 'Edit', edit_friendship_path(@friendship) %> |
+<%= link_to 'Back', friendships_path %>
