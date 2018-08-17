@@ -1,7 +1,7 @@
 <%= form_for(image, {multipart: true}) do |f| %>
   <% if image.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(image.errors.count, "error") %> prohibited this image from being saved:</h2>
+      <h2><%= pluralize(image.errors.count, "error") %> 画像を保存できませんでした。:</h2>
 
       <ul>
       <% image.errors.full_messages.each do |message| %>
@@ -16,7 +16,7 @@
   </div>
 
   <div class="field">
-    <%= f.label "Image" %>
+    <%= f.label "画像" %>
     <%= f.file_field :file %>
   </div>
 

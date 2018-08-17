@@ -1,7 +1,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent" style="overflow-y: scroll; height:600px;">
     <!-- Tabs Titles -->
-    <h2 class="active"> アカウント登録 </h2>
+    <h2 class="active"> アカウント編集 </h2>
 
     <!-- Icon -->
     <div class="fadeIn first">
@@ -32,7 +32,7 @@
         <% end %>
 
         <div class="field">
-          <%= f.label :password %> <i>(パスワードを変更したくない場合しばらく間を置いてください。)</i><br />
+          <%= f.label :password %> <i>(新しいパスワードを入力してください。)</i><br />
           <%= f.password_field :password, autocomplete: "off", class: "textIn" %>
           <% if @minimum_password_length %>
               <br />
@@ -46,7 +46,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i>(変更には現在のパスワード入力が必要です。)</i><br />
+          <%= f.label :current_password %> <i>(現在のパスワードを入力してください。)</i><br />
           <%= f.password_field :current_password, autocomplete: "off", class: "textIn" %>
         </div>
 
@@ -61,6 +61,6 @@
       <%= button_to "アカウント削除", registration_path(resource_name), data: { confirm: "本当によろしいですか?" }, method: :delete, style:"background-color: #c14242;"%>
     </p>
 
-    <%= link_to "Back", :back %>
+    <%= link_to "戻る", :back %>
   </div>
 </div>
