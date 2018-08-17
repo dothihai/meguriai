@@ -2,12 +2,35 @@
   <p class="leading-bigtext"><%= @images.first.user.name %></p>
   <p class="leading-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vitae semper quam. Praesent lobortis tellus quis erat condimentum, a bibendum tortor volutpat.</p>
 </div>
+<div style="overflow-y: scroll; height:400px;">
 
-<div id="posts">
-  <%= render 'posts' %>
+<% @images.each do |image| %>
+      <div class="wrapper">
+        <div id="formContent">
+          <!-- Tabs Titles -->
+          <h2 class="active"> <%= image.created_at.to_date %> </h2>
+
+          <!-- Icon -->
+          <div class="fadeIn first">
+            <%= link_to (image_tag image.file, class:'center-block', style:'align-content: center;'), image_path(image) %>
+          </div>
+
+          <!-- Login Form -->
+
+          <div class="post-bottom">
+            <div class="caption">
+              <div class="caption-content">
+                <%= image.title %>
+              </div>
+            </div>
+          </div>
+          <div class="comment-like-form row center-block">
+            <%= link_to 'Show', image %>
+            <%= link_to 'Edit', edit_image_path(image) %>
+            <%= link_to 'Destroy', image, method: :delete, data: { confirm: 'Are you sure?' } %>
+          </div>
+
+        </div>
+      </div>
+<% end %>
 </div>
-
-
-
-
-
