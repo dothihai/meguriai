@@ -8,7 +8,7 @@
       <div class="wrapper image-form">
         <div id="formContent">
           <!-- Tabs Titles -->
-          <h2 class="active"> <%= image.created_at.to_date %> </h2>
+          <h2 class="active"> <%= image.title %> </h2>
 
           <!-- Icon -->
           <div class="fadeIn first">
@@ -20,7 +20,7 @@
           <div class="post-bottom">
             <div class="caption">
               <div class="caption-content">
-                <%= image.title %>
+                <%= image.created_at.to_date %>
               </div>
             </div>
           </div>
