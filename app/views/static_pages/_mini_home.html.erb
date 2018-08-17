@@ -1,3 +1,7 @@
+<% if current_user %>
+    <%= render 'marching_user' %>
+<% else %>
+
 <div class="bg-dark"></div>
 
 <div class="home-information">
@@ -47,3 +51,4 @@ jQuery(function($) {
 });
 
 </script>
+<% end %>
