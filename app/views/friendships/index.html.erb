@@ -1,0 +1,72 @@
+<body>
+<!-- start padding container -->
+<div class="wrap">
+  <!-- start jtinder container -->
+  <div id="tinderslide">
+    <ul>
+      <% @images.each do |image| %>
+        <li class="pane<%= image.id % 5 + 1 %>" id="user_<%= image.user.id %>">
+          <div class="img">
+            <% if image.file.present?%>
+                <%= image_tag image.file, class:'center-block', style:'align-content: center; background-size: cover; height: 400px;'%>
+            <% else %>
+                <%= image_tag image.link, class:'center-block', style:'align-content: center; background-size: cover; height: 400px;'%>
+            <% end %>
+          </div>
+          <div style = "color: #ff288d;">
+            <%= image.user.name %>
+          </div>
+          <div style="font-size: 14px">
+            <%= image.title %>
+          </div>
+          <div class="like"></div>
+          <div class="dislike"></div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <!-- end jtinder container -->
+</div>
+<!-- end padding container -->
+
+<!-- jTinder trigger by buttons  -->
+<div class="actions">
+  <a href="#" class="dislike"><i></i></a>
+  <a href="#" class="like"><i></i></a>
+</div>
+
+<!-- jTinder status text  -->
+<div id="status"></div>
+</body>
+
+<script type="text/javascript">
+    $("#tinderslide").jTinder({
+
+        onDislike: function (item) {
+            //alert('Dislike image ' + (item.index()+1));
+        },
+        onLike: function (item) {
+            var myId = $("#tinderslide > ul li").last().attr("id").split('_').pop();
+            console.log("liked user" + myId);
+
+            $.ajax({
+                url: '/friendships',
+                type: 'POST',
+                data: {
+                    friendship: {'friend_id': myId}
+                },
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    console.log("success");
+                },
+            });
+
+        },
+    });
+    $('.actions .like, .actions .dislike').click(function(e){
+        e.preventDefault();
+        $("#tinderslide").jTinder($(this).attr('class'));
+    });
+</script>

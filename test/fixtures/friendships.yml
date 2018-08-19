@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  friend_id: 1
+  t.string: MyString
+  : 
+  default: MyString
+  pending: MyString
+  t.datetime: MyString
+  : 
+
+two:
+  user_id: 1
+  friend_id: 1
+  t.string: MyString
+  : 
+  default: MyString
+  pending: MyString
+  t.datetime: MyString
+  : 

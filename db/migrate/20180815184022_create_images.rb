@@ -4,6 +4,7 @@ class CreateImages < ActiveRecord::Migration[5.0]
       t.integer :user_id
       t.string :title
       t.string :file
+      t.string :link
       t.datetime :created_at
 
       t.timestamps
