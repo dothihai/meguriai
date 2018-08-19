@@ -1,0 +1,32 @@
+<script>
+    createMessageChannel();
+    // app/assets/javascripts/channels/messages.js
+    messageForm();
+    // app/assets/javascripts/messages_form.js
+</script>
+
+<div class="chat">
+  <div class="chat-title">
+    <h1><%= @other_user.name %></h1>
+    <h2>Have a nice day!</h2>
+    <figure class="avatar">
+      <img src="https://ui-avatars.com/api/?name=<%= @other_user.name %>" />
+    </figure>
+  </div>
+
+  <div class="messages">
+    <div class="messages-content">
+      <% if @chat.messages.any? %>
+          <div id="messages" style="font-size: 20px; margin-left: 10px">
+            <%= render partial: 'messages/message', collection: @chat.messages.order(id: :asc)%>
+          </div>
+      <%else%>
+          <div id="messages">
+          </div>
+      <%end%>
+    </div>
+  </div>
+
+  <%= render partial: 'messages/message_form', locals: {message: @message, chat: @chat}%>
+</div>
+<div class="bg"></div>

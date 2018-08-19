@@ -23,4 +23,5 @@
 //= require jquery.tinysort
 //= require sweetalert.min
 //= require data-confirm-modal
+//= require_tree ./channels
 //= require_tree .

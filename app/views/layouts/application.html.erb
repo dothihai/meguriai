@@ -8,6 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  <%= action_cable_meta_tag %>
 </head>
 <body>
 
@@ -19,7 +20,7 @@
 			</li>
 
 			<li class="<%= if params[:action] == "matches" then "active" end %> nav-btn">
-				<%= link_to "#" do %><i class="fa fa-heart"></i> 出会う <% end %>
+				<%= link_to user_chats_path(current_user) do %><i class="fa fa-heart"></i> 出会う <% end %>
 			</li>
 
       <li class="<%= if params[:action] == "post" then "active" end %> nav-btn">
@@ -62,7 +63,6 @@
 	</a>
 
 <% end %>
-
 <%= yield %>
 
 

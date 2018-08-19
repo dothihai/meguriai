@@ -1,0 +1,8 @@
+<div class="message-box">
+  <%=form_for message, remote: true,authenticity_token: true do |f|%>
+      <%= f.text_area :content, data: {textarea: "message"}, class:"message-input", placeholder: "Type message..."%>
+      <!-- this hidden field is for the MessagesController and Action Cable to keep track of what chat this message belongs to -->
+      <button type="submit" class="message-submit">Send</button>
+      <%= f.hidden_field :chat_id, value: chat.id %>
+  <%end%>
+</div>
