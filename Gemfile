@@ -58,3 +58,5 @@ gem "figaro"
 gem 'utf8-cleaner'
 gem 'devise'
 gem 'carrierwave'
+gem 'bcrypt'
+gem 'redis', '~> 3.2'

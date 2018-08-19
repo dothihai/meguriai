@@ -25,8 +25,7 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    byebug
-    @friendship = Friendship.new(user_id: current_user, friend_id: friendship_params.friend_id)
+    @friendship = Friendship.new(user_id: current_user, friend_id: friendship_params[:friend_id])
 
     respond_to do |format|
       if @friendship.save
@@ -71,7 +70,6 @@ class FriendshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def friendship_params
-      byebug
       params.require(:friendship).permit(:friend_id)
     end
 end

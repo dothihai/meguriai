@@ -8,6 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=0.9">
+  <%= action_cable_meta_tag %>
 </head>
 <body>
 
@@ -63,8 +64,9 @@
 
 <% end %>
 
-<%= yield %>
-
+<div style="margin-top: 60px">
+  <%= yield %>
+</div>
 
 <script type="text/javascript">
 

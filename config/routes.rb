@@ -1,8 +1,17 @@
 Rails.application.routes.draw do
+  mount ActionCable.server => '/cable'
+
   resources :friendships
   resources :images
   devise_for :users
   root 'static_pages#home'
+
+  resources :users do
+    resources :chats, only: [:index, :show, :create]
+  end
+  resources :messages, only:[:create]
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

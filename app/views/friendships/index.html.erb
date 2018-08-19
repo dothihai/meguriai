@@ -53,10 +53,8 @@
                 url: '/friendships',
                 type: 'POST',
                 data: {
-                    friendship: {'friend_id': myId}
+                    friendship: {friend_id: myId}
                 },
-                dataType: 'json',
-                contentType: "application/json; charset=utf-8",
                 success: function (data) {
                     console.log(data);
                     console.log("success");
