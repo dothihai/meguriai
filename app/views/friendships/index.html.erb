@@ -1,41 +1,72 @@
-<p id="notice"><%= notice %></p>
+<body>
+<!-- start padding container -->
+<div class="wrap">
+  <!-- start jtinder container -->
+  <div id="tinderslide">
+    <ul>
+      <% @images.each do |image| %>
+        <li class="pane<%= image.id % 5 + 1 %>" id="user_<%= image.user.id %>">
+          <div class="img">
+            <% if image.file.present?%>
+                <%= image_tag image.file, class:'center-block', style:'align-content: center; background-size: cover; height: 400px;'%>
+            <% else %>
+                <%= image_tag image.link, class:'center-block', style:'align-content: center; background-size: cover; height: 400px;'%>
+            <% end %>
+          </div>
+          <div style = "color: #ff288d;">
+            <%= image.user.name %>
+          </div>
+          <div style="font-size: 14px">
+            <%= image.title %>
+          </div>
+          <div class="like"></div>
+          <div class="dislike"></div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <!-- end jtinder container -->
+</div>
+<!-- end padding container -->
 
-<h1>Friendships</h1>
+<!-- jTinder trigger by buttons  -->
+<div class="actions">
+  <a href="#" class="dislike"><i></i></a>
+  <a href="#" class="like"><i></i></a>
+</div>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Friend</th>
-      <th>T.string</th>
-      <th></th>
-      <th>Default</th>
-      <th>Pending</th>
-      <th>T.datetime</th>
-      <th></th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- jTinder status text  -->
+<div id="status"></div>
+</body>
 
-  <tbody>
-    <% @friendships.each do |friendship| %>
-      <tr>
-        <td><%= friendship.user_id %></td>
-        <td><%= friendship.friend_id %></td>
-        <td><%= friendship.t.string %></td>
-        <td><%= friendship. %></td>
-        <td><%= friendship.default %></td>
-        <td><%= friendship.pending %></td>
-        <td><%= friendship.t.datetime %></td>
-        <td><%= friendship. %></td>
-        <td><%= link_to 'Show', friendship %></td>
-        <td><%= link_to 'Edit', edit_friendship_path(friendship) %></td>
-        <td><%= link_to 'Destroy', friendship, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<script type="text/javascript">
+    $("#tinderslide").jTinder({
 
-<br>
+        onDislike: function (item) {
+            //alert('Dislike image ' + (item.index()+1));
+        },
+        onLike: function (item) {
+            var myId = $("#tinderslide > ul li").last().attr("id").split('_').pop();
+            console.log("liked user" + myId);
 
-<%= link_to 'New Friendship', new_friendship_path %>
+            $.ajax({
+                url: '/friendships',
+                type: 'POST',
+                data: {
+                    friendship: {'friend_id': myId}
+                },
+                dataType: 'json',
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    console.log("success");
+                },
+            });
+
+        },
+    });
+    $('.actions .like, .actions .dislike').click(function(e){
+        e.preventDefault();
+        $("#tinderslide").jTinder($(this).attr('class'));
+    });
+</script>

@@ -11,16 +11,19 @@ body {
 
 /* Wrapper with padding */
 .wrap  {
-  margin-top: 100px;
-  height: 700px;
-  padding: 5%;
+  margin-top: 90px;
+  height: 540px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #tinderslide {
   position: relative;
   background: #fff;
-  width: 95%;
+  width: 80%;
   height: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 #tinderslide ul {
@@ -70,6 +73,8 @@ body {
   text-shadow: -1px -1px 0 rgba(0, 0, 0, .2);
 }
 
+$randomNumber: random(3);
+
 /* Image rotation */
 #tinderslide li.pane1 {
   -webkit-transform: rotate(-1deg);
@@ -87,10 +92,11 @@ body {
   transform: rotate(2deg);
 }
 
+
 /* Like & dislike badge images */
 #tinderslide .like,
 #tinderslide .dislike {
-  background: url("../img/liked.png") no-repeat scroll 0 0;
+  background: image-url("liked.png") no-repeat scroll 0 0;
   opacity: 0;
   height: 80px;
   position: absolute;
@@ -111,7 +117,7 @@ body {
 #tinderslide .dislike {
   right: 45px;
   left: auto;
-  background: url("../img/nope.png") no-repeat scroll 0 0;
+  background: image-url("nope.png") no-repeat scroll 0 0;
 }
 
 /* Image container */
@@ -153,11 +159,11 @@ body {
 }
 
 .actions a.dislike i {
-  background: url("../img/dislike_button.png") no-repeat scroll center center;
+  background: image-url("dislike_button.png") no-repeat scroll center center;
 }
 
 .actions a.like i {
-  background: url("../img/like_button.png") no-repeat scroll center center;
+  background: image-url("like_button.png") no-repeat scroll center center;
 }
 
 .actions a {
@@ -188,26 +194,32 @@ body {
 }
 
 /* jTinder images */
-#tinderslide .pane5 .img {
-  background: url("../img/pane/pane5.jpg") no-repeat scroll center center;
-  background-size: cover;
-}
-#tinderslide .pane4 .img {
-  background: url("../img/pane/pane4.jpg") no-repeat scroll center center;
-  background-size: cover;
-}
-#tinderslide .pane3 .img {
-  background: url("../img/pane/pane3.jpg") no-repeat scroll center center;
-  background-size: cover;
-}
-#tinderslide .pane2 .img {
-  background: url("../img/pane/pane2.jpg") no-repeat scroll center center;
-  background-size: cover;
-}
 #tinderslide .pane1 .img {
-  background: url("../img/pane/pane1.jpg") no-repeat scroll center center;
+  height: 400px;
   background-size: cover;
 }
+
+#tinderslide .pane2 .img {
+  height: 400px;
+  background-size: cover;
+}
+
+#tinderslide .pane3 .img {
+  height: 400px;
+  background-size: cover;
+}
+
+#tinderslide .pane4 .img {
+  height: 400px;
+  background-size: cover;
+}
+
+#tinderslide .pane5 .img {
+  height: 400px;
+  background-size: cover;
+}
+
+
 
 /* jTinder status text */
 #status {

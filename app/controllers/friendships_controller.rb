@@ -4,7 +4,8 @@ class FriendshipsController < ApplicationController
   # GET /friendships
   # GET /friendships.json
   def index
-    @friendships = Friendship.all
+    # @friendships = Friendship.all
+    @images = Image.all
   end
 
   # GET /friendships/1
@@ -24,7 +25,8 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(friendship_params)
+    byebug
+    @friendship = Friendship.new(user_id: current_user, friend_id: friendship_params.friend_id)
 
     respond_to do |format|
       if @friendship.save
@@ -69,6 +71,7 @@ class FriendshipsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def friendship_params
-      params.require(:friendship).permit(:user_id, :friend_id, :t.string, :, :default, :pending, :t.datetime, :)
+      byebug
+      params.require(:friendship).permit(:friend_id)
     end
 end

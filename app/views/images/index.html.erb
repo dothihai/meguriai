@@ -1,5 +1,5 @@
-<div class="leading">
-  <p class="leading-bigtext"><%= @images.first.user.name %></p>
+<div class="leading" style=" margin-top: 80px;">
+  <p class="leading-bigtext" style="font-size: 80px;"><%= @images.first.user.name %></p>
   <p class="leading-text">愛することによって失うものは何もない。しかし、愛することを怖がっていたら、何も得られない。</p>
 </div>
 <div style="overflow-y: scroll; height:500px;">
@@ -12,7 +12,11 @@
 
           <!-- Icon -->
           <div class="fadeIn first">
-            <%= link_to (image_tag image.file, class:'center-block', style:'align-content: center; width: 600px;'), image_path(image) %>
+            <% if image.file.present?%>
+              <%= link_to (image_tag image.file, class:'center-block', style:'align-content: center; width: 600px;'), image_path(image) %>
+            <% else %>
+              <%= link_to (image_tag image.link, class:'center-block', style:'align-content: center; width: 600px;'), image_path(image) %>
+          <% end %>
           </div>
 
           <!-- Login Form -->
