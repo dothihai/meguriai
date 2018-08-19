@@ -5,7 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   validates :name, presence: true
   validates :age, presence: true
-
+  has_many :images
+  has_many :friendships
   has_many :messages
   has_many :subscriptions
   has_many :chats, through: :subscriptions

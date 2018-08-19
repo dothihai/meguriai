@@ -5,7 +5,7 @@ class FriendshipsController < ApplicationController
   # GET /friendships.json
   def index
     # @friendships = Friendship.all
-    @images = Image.all
+    @images = (Image.all - current_user.images).shuffle
   end
 
   # GET /friendships/1
@@ -25,16 +25,16 @@ class FriendshipsController < ApplicationController
   # POST /friendships
   # POST /friendships.json
   def create
-    @friendship = Friendship.new(user_id: current_user, friend_id: friendship_params[:friend_id])
-
-    respond_to do |format|
-      if @friendship.save
-        format.html { redirect_to @friendship, notice: 'Friendship was successfully created.' }
-        format.json { render :show, status: :created, location: @friendship }
-      else
-        format.html { render :new }
-        format.json { render json: @friendship.errors, status: :unprocessable_entity }
-      end
+    #check friendship exist?
+    friend_id = friendship_params[:friend_id]
+    friendship = Friendship.find_by(user_id:friend_id, friend_id:current_user)
+    my_friendship = Friendship.find_by(user_id:current_user, friend_id:friend_id)
+    if friendship.blank? and my_friendship.blank?
+      new_friendship = Friendship.new(user_id: current_user.id, friend_id: friendship_params[:friend_id])
+      new_friendship.save
+    elsif friendship.present? and friendship.state == "pending"
+      friendship.state = "approved"
+      friendship.save
     end
   end
 

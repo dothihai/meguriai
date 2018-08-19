@@ -5,6 +5,7 @@ class ChatsController < ApplicationController
   def index
     chats = current_user.chats
     @existing_chats_users = current_user.existing_chats_users
+    @available_user = current_user.friendships.where(state:"approved")
   end
 
   def create
